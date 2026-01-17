@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniLibraryApp.MainPage"
+             Title="Mini Bibliothèque">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <Label Text="Ajouter un livre" FontSize="24" HorizontalOptions="Center"/>
+
+        <Entry x:Name="titleEntry" Placeholder="Titre du livre"/>
+        <Entry x:Name="authorEntry" Placeholder="Auteur"/>
+
+        <Button Text="Ajouter un livre" Clicked="OnAddBookClicked"/>
+
+        <Label Text="Livres enregistrés :" FontAttributes="Bold" Margin="0,20,0,5"/>
+
+        <CollectionView x:Name="booksView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout>
+                            <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Author}" FontSize="12"/>
+                            <Label Text="{Binding Status}" FontSize="12" TextColor="Green"/>
+                        </StackLayout>
+                        <Button Text="Supprimer" Grid.Column="1" Clicked="OnDeleteBookClicked"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
