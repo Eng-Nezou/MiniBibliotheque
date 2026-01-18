@@ -1,14 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="MiniLibraryApp.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MiniLibraryApp"
-    Title="MiniLibraryApp">
+<?xml version="1.0" encoding="utf-8" ?>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+<Shell
+ xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ xmlns:pages="clr-namespace:MiniLibraryApp.Pages"
+ x:Class="MiniLibraryApp.AppShell"
+ FlyoutBehavior="Flyout">
+
+    ```
+    <!-- Drawer Header -->
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout Padding="30" BackgroundColor="#4f46e5">
+            <Label Text="📚 Mini Library"
+               FontSize="24"
+               TextColor="White"
+               FontAttributes="Bold"/>
+            <Label Text="Bienvenue"
+               TextColor="White"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <!-- Pages -->
+    <FlyoutItem Title="Ajouter un livre" Icon="add.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:AddBookPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Mes livres" Icon="books.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:BooksPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Déconnexion" Icon="logout.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:LoginPage}" />
+    </FlyoutItem>
+    ```
 
 </Shell>

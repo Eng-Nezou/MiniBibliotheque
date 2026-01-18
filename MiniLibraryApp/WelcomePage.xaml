@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniLibraryApp.WelcomePage"
+             BackgroundColor="#f5f5f5"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="library_background.jpg"
+               Aspect="AspectFill"
+               Opacity="0.3"
+               Grid.RowSpan="2"/>
+        <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image Source="book_icon.png" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center"/>
+            <Label Text="Bienvenue à votre Mini Bibliothèque !" 
+                   FontSize="28" FontAttributes="Bold" TextColor="#2c3e50"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="Gérez vos livres facilement avec Firebase"
+                   FontSize="16" TextColor="#34495e"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Button Text="Commencer"
+                    Clicked="OnStartClicked"
+                    BackgroundColor="#3498db"
+                    TextColor="White"
+                    CornerRadius="25"
+                    Padding="15"
+                    FontSize="18"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

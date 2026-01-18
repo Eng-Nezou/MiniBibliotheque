@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiniLibraryApp.App">
     <Application.Resources>
-        <!-- Tu peux mettre ici tes styles globaux -->
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="#3498db"/>
             <Setter Property="TextColor" Value="White"/>

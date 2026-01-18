@@ -1,38 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MiniLibraryApp"
              x:Class="MiniLibraryApp.MainPage"
              Title="Mini Bibliothèque">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToImageSourceConverter x:Key="StringToImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <VerticalStackLayout Padding="20" Spacing="10">
 
         <Label Text="Ajouter un livre" FontSize="24" HorizontalOptions="Center"/>
-
         <Entry x:Name="titleEntry" Placeholder="Titre du livre"/>
         <Entry x:Name="authorEntry" Placeholder="Auteur"/>
-
+        <Entry x:Name="imageEntry" Placeholder="URL de l'image (optionnel)"/>
         <Button Text="Ajouter un livre" Clicked="OnAddBookClicked"/>
+        <Button Text="Se déconnecter" Clicked="OnLogoutClicked" BackgroundColor="#e74c3c"/>
 
         <Label Text="Livres enregistrés :" FontAttributes="Bold" Margin="0,20,0,5"/>
-
         <CollectionView x:Name="booksView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="5">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <StackLayout>
+
+                        <Image WidthRequest="60" HeightRequest="80" Aspect="AspectFill">
+                            <Image.Source>
+                                <Binding Path="ImageUrl" Converter="{StaticResource StringToImageSourceConverter}"/>
+                            </Image.Source>
+                        </Image>
+
+                        <StackLayout Grid.Column="1" Padding="5">
                             <Label Text="{Binding Title}" FontAttributes="Bold"/>
                             <Label Text="{Binding Author}" FontSize="12"/>
                             <Label Text="{Binding Status}" FontSize="12" TextColor="Green"/>
                         </StackLayout>
-                        <Button Text="Supprimer" Grid.Column="1" Clicked="OnDeleteBookClicked"/>
+
+                        <Button Text="Supprimer" Grid.Column="2" Clicked="OnDeleteBookClicked"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </VerticalStackLayout>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using MiniLibraryApp.Models;
+﻿using Microsoft.Maui.Storage;
+using MiniLibraryApp.Models;
 using MiniLibraryApp.Services;
 
 namespace MiniLibraryApp;
@@ -7,11 +8,13 @@ public partial class MainPage : ContentPage
 {
     private FirebaseService _firebaseService;
     private Dictionary<string, Book> _books = new();
+    private string _userId;
 
-    public MainPage()
+    public MainPage(string userId)
     {
-        InitializeComponent(); // unique et correct
-        _firebaseService = new FirebaseService();
+        InitializeComponent();
+        _userId = userId;
+        _firebaseService = new FirebaseService(_userId);
         LoadBooks();
     }
 
@@ -23,7 +26,8 @@ public partial class MainPage : ContentPage
             Id = b.Key,
             Title = b.Value.Title,
             Author = b.Value.Author,
-            Status = b.Value.Status
+            Status = b.Value.Status,
+            ImageUrl = b.Value.ImageUrl
         }).ToList();
     }
 
@@ -34,11 +38,13 @@ public partial class MainPage : ContentPage
             var book = new Book
             {
                 Title = titleEntry.Text,
-                Author = authorEntry.Text
+                Author = authorEntry.Text,
+                ImageUrl = imageEntry.Text?.Trim() ?? string.Empty
             };
             await _firebaseService.AddBookAsync(book);
             titleEntry.Text = "";
             authorEntry.Text = "";
+            imageEntry.Text = "";
             LoadBooks();
         }
     }
@@ -50,5 +56,11 @@ public partial class MainPage : ContentPage
             await _firebaseService.DeleteBookAsync(book.Id);
             LoadBooks();
         }
+    }
+
+    private void OnLogoutClicked(object sender, EventArgs e)
+    {
+        Preferences.Default.Remove("UserId");
+        Application.Current.Windows[0].Page = new NavigationPage(new LoginPage());
     }
 }
