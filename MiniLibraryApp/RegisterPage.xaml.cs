@@ -1,4 +1,4 @@
-using Microsoft.Maui.Storage;
+ï»¿using Microsoft.Maui.Storage;
 using MiniLibraryApp.Services;
 
 namespace MiniLibraryApp;
@@ -28,7 +28,12 @@ public partial class RegisterPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Erreur", "Impossible de créer le compte", "OK");
+            await DisplayAlert("Erreur", "Impossible de crï¿½er le compte", "OK");
         }
+    }
+
+    private async void OnGoToLoginTapped(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
     }
 }

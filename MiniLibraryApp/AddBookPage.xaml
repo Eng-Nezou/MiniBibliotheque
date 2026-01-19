@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniLibraryApp.AddBookPage"
+             Title="Ajouter un livre">
+
+    <Grid Padding="20"
+          RowDefinitions="Auto,*,Auto">
+
+        <!-- ================== -->
+        <!-- 🔝 TOP NAVIGATION -->
+        <!-- ================== -->
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="10">
+
+            <Button Text="📚 Voir les livres"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    Clicked="OnGoToBooksClicked"/>
+
+            <Button Text="⬅ Retour"
+                    Grid.Column="1"
+                    BackgroundColor="#9E9E9E"
+                    TextColor="White"
+                    Clicked="OnBackClicked"/>
+        </Grid>
+
+        <!-- ================== -->
+        <!-- 📘 FORM -->
+        <!-- ================== -->
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="15"
+                             Margin="0,20,0,20">
+
+            <Label Text="Ajouter un nouveau livre"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Entry x:Name="titleEntry"
+                   Placeholder="Titre du livre"/>
+
+            <Entry x:Name="authorEntry"
+                   Placeholder="Auteur"/>
+
+            <Entry x:Name="imageEntry"
+                   Placeholder="URL de l'image"
+                   Keyboard="Url"/>
+
+        </VerticalStackLayout>
+
+        <!-- ================== -->
+        <!-- 🔻 ADD BUTTON -->
+        <!-- ================== -->
+        <Button Text="➕ Ajouter le livre"
+                Grid.Row="2"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                Clicked="OnAddBookClicked"/>
+    </Grid>
+
+</ContentPage>

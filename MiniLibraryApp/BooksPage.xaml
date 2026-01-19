@@ -1,0 +1,92 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MiniLibraryApp"
+             x:Class="MiniLibraryApp.BooksPage"
+             Title="Bibliothèque"
+             
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToImageSourceConverter
+                x:Key="StringToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="15"
+          RowDefinitions="Auto,*,Auto">
+
+
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="10">
+
+            <Button Text="➕ Ajouter un livre"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    Clicked="OnAddBookClicked"/>
+
+            <Button Text="🔄 Actualiser"
+                    Grid.Column="1"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Clicked="OnRefreshClicked"/>
+        </Grid>
+
+ 
+        <CollectionView x:Name="booksView"
+                        Grid.Row="1"
+                        Margin="0,15,0,15"
+                        EmptyView="Aucun livre trouvé">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10"
+                           Margin="0,5"
+                           CornerRadius="10"
+                           HasShadow="True">
+
+                        <Grid ColumnDefinitions="80,*,Auto">
+
+                            
+                            <Image WidthRequest="60"
+                                   HeightRequest="80"
+                                   Aspect="AspectFill">
+                                <Image.Source>
+                                    <Binding Path="ImageUrl"
+                                             Converter="{StaticResource StringToImageSourceConverter}" />
+                                </Image.Source>
+                            </Image>
+
+                            
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Padding="10,0">
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       FontSize="16"/>
+
+                                <Label Text="{Binding Author}"
+                                       FontSize="13"
+                                       TextColor="Gray"/>
+                            </VerticalStackLayout>
+
+                            
+                            <Button Text="🗑️"
+                                    Grid.Column="2"
+                                    BackgroundColor="Transparent"
+                                    CommandParameter="{Binding Id}"
+                                    Clicked="OnDeleteBookClicked"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+      
+        <Button Text="🚪 Se déconnecter"
+                Grid.Row="2"
+                BackgroundColor="#E53935"
+                TextColor="White"
+                Clicked="OnLogoutClicked"/>
+
+    </Grid>
+</ContentPage>

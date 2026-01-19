@@ -1,4 +1,4 @@
-using Microsoft.Maui.Storage;
+﻿using Microsoft.Maui.Storage;
 using MiniLibraryApp.Services;
 
 namespace MiniLibraryApp;
@@ -18,7 +18,7 @@ public partial class LoginPage : ContentPage
         if (!string.IsNullOrEmpty(userId))
         {
             Preferences.Default.Set("UserId", userId);
-            Application.Current.Windows[0].Page = new NavigationPage(new MainPage(userId));
+            Application.Current.Windows[0].Page = new NavigationPage(new BooksPage());
         }
         else
         {

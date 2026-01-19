@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MiniLibraryApp"
              x:Class="MiniLibraryApp.MainPage"
-             Title="Mini Bibliothèque">
+             Title="">
 
     <ContentPage.Resources>
         <ResourceDictionary>

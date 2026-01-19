@@ -1,3 +1,4 @@
+C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.Internal.FrameworkUdk.dll
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MiniLibraryApp.csproj.AssemblyReference.cache
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\mauifont.inputs
@@ -148,7 +149,6 @@ C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.1
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.DirectManipulation.dll
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Display.dll
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.InputStateManager.dll
-C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.Internal.FrameworkUdk.dll
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.UI.Composition.OSSupport.dll
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.UI.dll
 C:\Users\hp\Desktop\MiniLibraryApp\MiniLibraryApp\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.UI.Input.dll

@@ -12,6 +12,7 @@ public class FirebaseService
     public FirebaseService(string userId)
     {
         _userId = userId;
+
     }
 
     public async Task AddBookAsync(Book book)
